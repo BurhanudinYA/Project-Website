@@ -1,107 +1,204 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOMEPAGE</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>PRODUCT NAXA</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .product-card {
+            width: 18rem;
+            margin-bottom: 20px;
+        }
+        .cart-icon {
+            font-size: 1.5em;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        #cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 5px 8px;
+            font-size: 0.7em;
+        }
+    </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-            <img src="SA.png" alt="Logo NAXA" height="100"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-                <ul class="navbar-nav mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">HOME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Product">PRODUCT</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Order">ORDER</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Tracking">TRACKING</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">
-                            SUPPORT
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="/contact/">CONTACT</a></li>
-                            <li><a class="dropdown-item" href="/About">ABOUT US</a></li>
-                            <li><a class="dropdown-item" href="/Akun">AKUN</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <!-- <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-light" type="submit">Search</button>
-                </form> -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">NAXA</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProduk" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Produk
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownProduk">
+                        <a class="dropdown-item" href="#" data-category="promo">Promo Extra Ramadhan</a>
+                        <a class="dropdown-item" href="#" data-category="naxa-timnas">Naxa X Timnas Indonesia</a>
+                        <a class="dropdown-item" href="#" data-category="naxa-jkt48">Naxa X JKT48</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#" data-category="tshirt-regular">T-Shirt Regular</a>
+                        <a class="dropdown-item" href="#" data-category="tshirt-oversize">T-Shirt Oversize</a>
+                        <a class="dropdown-item" href="#" data-category="jersey">Jersey</a>
+                        <a class="dropdown-item" href="#" data-category="hoodie">Hoodie</a>
+                        <a class="dropdown-item" href="#" data-category="windbreaker">Windbreaker</a>
+                        <a class="dropdown-item" href="#" data-category="varsity">Varsity</a>
+                        <a class="dropdown-item" href="#" data-category="sneakers">Sneakers</a>
+                        <a class="dropdown-item" href="#" data-category="all">Semua Produk</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="form-inline my-2 my-lg-0">
+                <i class="fas fa-shopping-cart cart-icon" data-toggle="modal" data-target="#cartModal">
+                    <span id="cart-badge" class="badge badge-pill badge-danger" style="display: none;">0</span>
+                </i>
             </div>
         </div>
     </nav>
 
-    <div class="container my-5">
-
-        <div id="carouselExampleCaptions" class="carousel slide mb-5" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                        aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="acces/WhatsApp Image 2025-05-10 at 13.17.30_f4df3a87.jpg" class="d-block w-100" alt="Slide 1" style="height: 400px;">
-                    <div class="carousel-caption">
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="/acces/abhi-verma-wh3geb21roa-unsplash.jpg" class="d-block w-100" alt="Slide 2" style="height: 500px;">
-                    <div class="carousel-caption">
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="/acces/bryan-brittos-slMcaf6sULE-unsplash.jpg" class="d-block w-100" alt="Slide 3" style="height: 500px;">
-                    <div class="carousel-caption">
+    <div class="container mt-4" id="product-list-container">
+        <h2>Semua Produk</h2>
+        <div class="row" id="product-list">
+            <div class="col-md-4 product" data-category="promo naxa-timnas">
+                <div class="card product-card">
+                    <img src="/Product/access/COMTE (1).png" class="card-img-top" alt="Produk 1">
+                    <div class="card-body">
+                        <h5 class="card-title">NAXA T-SHIRT 24s</h5>
+                        <p class="card-text">Deskripsi singkat produk 1.</p>
+                        <p class="card-text">Harga: Rp 125.000</p>
+                        <button class="btn btn-primary add-to-cart" data-id="1" data-name="Produk 1" data-price="100000">Tambah ke Keranjang</button>
                     </div>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-
-        <div class="row text-center align-items-center">
-            <div class="col-md-8">
-                <h1> JOKOWI DODO</h1>
+            <div class="col-md-4 product" data-category="naxa-jkt48 tshirt-regular">
+                <div class="card product-card">
+                    <img src="/Product/access/N.png"card-img-top" alt="Produk 2">
+                    <div class="card-body">
+                        <h5 class="card-title">NAXA JACKET FIRE</h5>
+                        <p class="card-text">Deskripsi singkat produk 2.</p>
+                        <p class="card-text">Harga: Rp 350.000</p>
+                        <button class="btn btn-primary add-to-cart" data-id="2" data-name="Produk 2" data-price="150000">Tambah ke Keranjang</button>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 product" data-category="tshirt-oversize jersey">
+                <div class="card product-card">
+                    <img src="/Product/access/Pink and White Playful 3D Typography T-shirt Design (1).png" class="card-img-top" alt="Produk 3">
+                    <div class="card-body">
+                        <h5 class="card-title">NAXA T-SHIRT WOMEN</h5>
+                        <p class="card-text">Deskripsi singkat produk 3.</p>
+                        <p class="card-text">Harga: Rp 120.000</p>
+                        <button class="btn btn-primary add-to-cart" data-id="3" data-name="Produk 3" data-price="200000">Tambah ke Keranjang</button>
+                    </div>
+                </div>
             </div>
         </div>
-
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Keranjang Belanja</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group" id="cart-items">
+                    </ul>
+                    <hr>
+                    <p><strong>Total: Rp <span id="cart-total">0</span></strong></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-primary">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/your_fontawesome_kit.js" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            let cart = [];
+
+            // Fungsi untuk memperbarui tampilan badge keranjang
+            function updateCartBadge() {
+                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                if (totalItems > 0) {
+                    $('#cart-badge').text(totalItems).show();
+                } else {
+                    $('#cart-badge').hide();
+                }
+            }
+
+            // Fungsi untuk menambahkan item ke keranjang
+            $('.add-to-cart').click(function() {
+                const productId = $(this).data('id');
+                const productName = $(this).data('name');
+                const productPrice = $(this).data('price');
+                const existingItem = cart.find(item => item.id === productId);
+
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    cart.push({ id: productId, name: productName, price: productPrice, quantity: 1 });
+                }
+
+                updateCartBadge();
+                updateCartModal();
+            });
+
+            // Fungsi untuk memperbarui tampilan modal keranjang
+            function updateCartModal() {
+                $('#cart-items').empty();
+                let total = 0;
+                cart.forEach(item => {
+                    const listItem = `
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            ${item.name}
+                            <div>
+                                <span class="badge badge-primary badge-pill">${item.quantity}</span>
+                                <button class="btn btn-sm btn-outline-danger ml-2 remove-from-cart" data-id="${item.id}">Hapus</button>
+                            </div>
+                        </li>
+                    `;
+                    $('#cart-items').append(listItem);
+                    total += item.price * item.quantity;
+                });
+                $('#cart-total').text(total.toLocaleString());
+
+                // Event listener untuk tombol hapus di modal
+                $('.remove-from-cart').click(function() {
+                    const productIdToRemove = $(this).data('id');
+                    cart = cart.filter(item => item.id !== productIdToRemove);
+                    updateCartBadge();
+                    updateCartModal();
+                });
+            }
+
+            // Filter produk berdasarkan kategori
+            $('.dropdown-item').click(function(e) {
+                e.preventDefault();
+                const category = $(this).data('category');
+                $('#product-list h2').text(category === 'all' ? 'Semua Produk' : category.replace(/-/g, ' ').replace(/naxa/gi, 'NAXA X ').replace(/tshirt/gi, 'T-Shirt ').replace(/promo/gi, 'Promo '));
+                $('.product').hide();
+                if (category === 'all') {
+                    $('.product').show();
+                } else {
+                    $('.product').filter('[data-category*="' + category + '"]').show();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
