@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NAXA - Produk</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        /* --- Navbar Specific Styles --- */
+        nav.navbar {
+            background: linear-gradient(to bottom, #003161, #0216ad);
+        }
+
+        .navbar-brand,
+        .navbar .nav-link,
+        .navbar .bi {
+            color: white !important;
+        }
+
+        .navbar .nav-link:hover,
+        .navbar-brand:hover,
+        .navbar .bi:hover {
+            color: #cccccc !important;
+        }
+
+        .navbar .dropdown-item {
+            color: black !important;
+        }
+        .navbar .dropdown-item:hover {
+            color: #555555 !important;
+            background-color: #f0f0f0;
+        }
+
+        .navbar-toggler {
+            border: none;
+        }
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+        .navbar-toggler-icon {
+           background-image: var(--bs-navbar-toggler-icon-bg);
+        }
+
+        .navbar .search-wrapper .form-control::placeholder {
+            color: #6c757d;
+            opacity: 1;
+        }
+        .navbar .search-wrapper .form-control:-ms-input-placeholder {
+            color: #6c757d;
+        }
+        .navbar .search-wrapper .form-control::-ms-input-placeholder {
+            color: #6c757d;
+        }
+        .navbar .search-wrapper .form-control {
+            color: #212529;
+        }
+        .navbar .search-wrapper .btn .bi-search {
+            color: #6c757d !important;
+        }
+
+        .navbar .collapse .d-lg-none .form-control::placeholder {
+            color: #6c757d;
+            opacity: 1;
+        }
+        .navbar .collapse .d-lg-none .form-control {
+            color: #212529;
+        }
+        .navbar .collapse .d-lg-none .btn .bi-search {
+            color: #6c757d !important;
+        }
+
+        .navbar #cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 3px 6px;
+            font-size: 0.7em;
+            line-height: 1;
+            display: inline-block;
+        }
+
+        footer {
+            background: linear-gradient(to top, #003161, #0216ad);
+            color: rgb(230, 230, 230);
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, 0.5) !important; /* Light grey for footer links */
+        }
+        footer a:hover {
+            color: white !important;
+        }
+
+        .dropdown-filter-container {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        #product-list-container h2.product-list-title {
+             margin-top: 20px; /* Disesuaikan karena filter ada di atasnya */
+             margin-bottom: 20px;
+        }
+
+        .product-card .btn {
+            border-radius: 10px;
+            width: 100%;
+        }
+        /* Style .cart-icon tidak lagi dibutuhkan karena badge menyatu dengan navbar */
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+  <div class="container-fluid position-relative">
+    <a class="navbar-brand me-lg-3" href="../2 - Home Page/indexHP.html">
+      <img src="SRC/naxa_logo_white.png" alt="Logo NAXA" height="45" />
+    </a>
+    <div class="search-wrapper mx-auto position-absolute top-50 start-50 translate-middle d-none d-lg-block" style="width: 40%; max-width: 450px; z-index: 1050;">
+      <form class="d-flex">
+        <input class="form-control ps-3 pe-5" type="search" placeholder="Search" aria-label="Search"/>
+        <button class="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent" type="submit">
+          <i class="bi bi-search"></i>
+        </button>
+      </form>
+    </div>
+    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="d-lg-none my-2">
+          <form class="d-flex position-relative">
+            <input class="form-control ps-3 pe-5" type="search" placeholder="Search on NAXA" aria-label="Search">
+            <button class="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent" type="submit">
+                <i class="bi bi-search"></i>
+            </button>
+          </form>
+      </div>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+        <li class="nav-item">
+          <a class="nav-link position-relative" href="#" aria-label="Cart">
+            <i class="bi bi-cart fs-5"></i>
+            <span id="cart-badge" style="display: none;">0</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../6 - About Us/indexacc.html" aria-label="Account">
+            <i class="bi bi-person-circle fs-5"></i>
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarMoreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-list fs-5"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarMoreDropdown">
+            <li><a class="dropdown-item" href="../5 - Order & Tracking/indexTrack.html">Tracking Order</a></li>
+            <li><a class="dropdown-item" href="../6 - About Us/indexAus.html">About Us</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="../3 - Shop & Product/indexProduct.html">All Products</a></li>
+            <li><a class="dropdown-item" href="../6 - About Us/indexCont.html">Contact</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container my-5" id="product-list-container">
+    <div class="row">
+        <div class="col-12 text-center dropdown-filter-container">
+            <button class="btn btn-outline-secondary dropdown-toggle" id="filterproduct" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                All Product
+            </button>
+            <ul class="dropdown-menu mx-auto"> <li><a class="dropdown-item filter-option" data-category="all" href="#">Semua Produk</a></li>
+                <li><a class="dropdown-item filter-option" data-category="promo">Promo</a></li>
+                <li><a class="dropdown-item filter-option" data-category="naxa-timnas">Naxa X Timnas Indonesia</a></li>
+                <li><a class="dropdown-item filter-option" data-category="naxa-jkt48">Naxa X JKT48</a></li>
+                <li><a class="dropdown-item filter-option" data-category="tshirt-regular">T-Shirt Regular</a></li>
+                <li><a class="dropdown-item filter-option" data-category="tshirt-oversize">T-Shirt Oversize</a></li>
+                <li><a class="dropdown-item filter-option" data-category="hoodie">Hoodie</a></li>
+                <li><a class="dropdown-item filter-option" data-category="jacket">Jacket</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row" id="product-list">
+        <div class="col-md-4 product" data-category="promo naxa-timnas">
+            <div class="card product-card mb-4"> <img src="../Product/access/COMTE (1).png" class="card-img-top" alt="Produk 1">
+                <div class="card-body text-center d-grid gap-2">
+                    <h5 class="card-title">NAXA T-SHIRT 24s</h5>
+                    <p class="card-text">Deskripsi singkat produk 1.</p>
+                    <p class="card-text">Harga: Rp 125.000</p>
+                    <button class="btn btn-primary add-to-cart" data-id="1" data-name="NAXA T-SHIRT 24s" data-price="125000">
+                        Tambah ke Keranjang
+                    </button>
+                    <button class="btn btn-outline-primary buy-now" data-id="1" data-name="NAXA T-SHIRT 24s">
+                        Beli Sekarang
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 product" data-category="naxa-jkt48 tshirt-regular">
+            <div class="card product-card mb-4">
+                <img src="../Product/access/N.png" class="card-img-top" alt="Produk 2">
+                <div class="card-body text-center d-grid gap-2">
+                    <h5 class="card-title">NAXA JACKET FIRE</h5>
+                    <p class="card-text">Deskripsi singkat produk 2.</p>
+                    <p class="card-text">Harga: Rp 350.000</p>
+                    <button class="btn btn-primary add-to-cart" data-id="2" data-name="NAXA JACKET FIRE" data-price="350000">
+                        Tambah ke Keranjang
+                    </button>
+                    <button class="btn btn-outline-primary buy-now" data-id="2" data-name="NAXA JACKET FIRE">
+                        Beli Sekarang
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 product" data-category="tshirt-oversize jersey">
+            <div class="card product-card mb-4">
+                <img src="../Product/access/Pink and White Playful 3D Typography T-shirt Design (1).png" class="card-img-top" alt="Produk 3">
+                <div class="card-body text-center d-grid gap-2">
+                    <h5 class="card-title">NAXA T-SHIRT WOMEN</h5>
+                    <p class="card-text">Deskripsi singkat produk 3.</p>
+                    <p class="card-text">Harga: Rp 120.000</p>
+                    <button class="btn btn-primary add-to-cart" data-id="3" data-name="NAXA T-SHIRT WOMEN" data-price="120000">
+                        Tambah ke Keranjang
+                    </button>
+                    <button class="btn btn-outline-primary buy-now" data-id="3" data-name="NAXA T-SHIRT WOMEN">
+                        Beli Sekarang
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 product" data-category="promo naxa-timnas"> <div class="card product-card mb-4">
+                <img src="../Product/access/COMTE (1).png" class="card-img-top" alt="Produk 4">
+                <div class="card-body text-center d-grid gap-2">
+                    <h5 class="card-title">NAXA T-SHIRT 24s (Promo)</h5>
+                    <p class="card-text">Deskripsi singkat produk 4.</p>
+                    <p class="card-text">Harga: Rp 125.000</p>
+                    <button class="btn btn-primary add-to-cart" data-id="4" data-name="NAXA T-SHIRT 24s (Promo)" data-price="125000">
+                        Tambah ke Keranjang
+                    </button>
+                    <button class="btn btn-outline-primary buy-now" data-id="4" data-name="NAXA T-SHIRT 24s (Promo)">
+                        Beli Sekarang
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 product" data-category="naxa-jkt48 tshirt-regular">
+            <div class="card product-card mb-4">
+                <img src="../Product/access/N.png" class="card-img-top" alt="Produk 5">
+                <div class="card-body text-center d-grid gap-2">
+                    <h5 class="card-title">NAXA JACKET FIRE (JKT48)</h5>
+                    <p class="card-text">Deskripsi singkat produk 5.</p>
+                    <p class="card-text">Harga: Rp 350.000</p>
+                    <button class="btn btn-primary add-to-cart" data-id="5" data-name="NAXA JACKET FIRE (JKT48)" data-price="350000">
+                        Tambah ke Keranjang
+                    </button>
+                    <button class="btn btn-outline-primary buy-now" data-id="5" data-name="NAXA JACKET FIRE (JKT48)">
+                        Beli Sekarang
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 product" data-category="tshirt-oversize jersey">
+            <div class="card product-card mb-4">
+                <img src="../Product/access/Pink and White Playful 3D Typography T-shirt Design (1).png" class="card-img-top" alt="Produk 6">
+                <div class="card-body text-center d-grid gap-2">
+                    <h5 class="card-title">NAXA T-SHIRT WOMEN (Oversize)</h5>
+                    <p class="card-text">Deskripsi singkat produk 6.</p>
+                    <p class="card-text">Harga: Rp 120.000</p>
+                    <button class="btn btn-primary add-to-cart" data-id="6" data-name="NAXA T-SHIRT WOMEN (Oversize)" data-price="120000">
+                        Tambah ke Keranjang
+                    </button>
+                    <button class="btn btn-outline-primary buy-now" data-id="6" data-name="NAXA T-SHIRT WOMEN (Oversize)">
+                        Beli Sekarang
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="bg-black text-white pt-5 pb-4">
+    <div class="container-fluid px-5">
+        <div class="row justify-content-between align-items-start">
+            <div class="col-md-6 d-flex gap-5">
+                <div>
+                    <h6 class="fw-bold">PRODUCT</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="../3 - Shop & Product/indexProduct.html" class="text-decoration-none small">Shirt</a></li>
+                        <li><a href="../3 - Shop & Product/indexProduct.html" class="text-decoration-none small">Jacket</a></li>
+                        <li><a href="../3 - Shop & Product/indexProduct.html" class="text-decoration-none small">Shoes</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="fw-bold">SUPPORT</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="../6 - About Us/indexCont.html" class="text-decoration-none small">Contact</a></li>
+                        <li><a href="../6 - About Us/indexAus.html" class="text-decoration-none small">About Us</a></li>
+                        <li><a href="../6 - About Us/indexacc.html" class="text-decoration-none small">Account</a></li>
+                        <li><a href="../5 - Order & Tracking/indexTrack.html" class="text-decoration-none small">Tracking</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4 text-md-end text-center mt-4 mt-md-0">
+                <h4 class="fw-bold">
+                    <a href="../2 - Home Page/indexHP.html" style="color: white;">NAXA</a>
+                </h4>
+                <div class="mt-2">
+                    <a href="https://wa.me/6282296361021" class="me-3"><i class="bi bi-whatsapp"></i></a>
+                    <a href="https://instagram.com/muzhaffar_fakih" class="me-3"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="me-3"><i class="bi bi-twitter-x"></i></a>
+                </div>
+            </div>
+        </div>
+        <hr class="border-secondary mt-4" />
+        <div class="text-center small text-white-50">
+            © 2025 Naxa. All Rights Reserved.
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterOptions = document.querySelectorAll('.filter-option');
+    const products = document.querySelectorAll('.product');
+    const heading = document.querySelector('#product-list-container h2.product-list-title');
+
+    filterOptions.forEach(item => {
+        item.addEventListener('click', function (e) {
+            e.preventDefault();
+            const selectedCategory = this.getAttribute('data-category');
+            
+            if (heading) {
+                heading.textContent = selectedCategory === 'all' 
+                    ? 'Semua Produk' 
+                    : this.textContent;
+            }
+
+            products.forEach(product => {
+                const productCategories = product.dataset.category;
+                if (selectedCategory === 'all' || (productCategories && productCategories.includes(selectedCategory))) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    let cartItemCount = 0;
+    const cartBadge = document.getElementById('cart-badge');
+
+    function updateCartBadge() {
+        if (cartBadge) {
+            cartBadge.textContent = cartItemCount;
+            cartBadge.style.display = cartItemCount > 0 ? 'inline-block' : 'none';
+        }
+    }
+    updateCartBadge();
+
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', () => {
+            cartItemCount++;
+            updateCartBadge();
+            const productName = button.dataset.name || "Produk";
+            alert(`"${productName}" ditambahkan ke keranjang!`);
+        });
+    });
+
+    document.querySelectorAll('.buy-now').forEach(button => {
+        button.addEventListener('click', () => {
+            const productName = button.dataset.name || "Produk";
+            alert(`Mengarahkan ke pembayaran untuk "${productName}"...`);
+            // window.location.href = '/checkout.html?productId=' + button.dataset.id;
+        });
+    });
+});
+</script>
+</body>
+</html>

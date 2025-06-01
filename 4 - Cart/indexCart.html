@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Keranjang Belanja | NAXA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Bootstrap 5.3.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    nav.navbar {
+            background: linear-gradient(to bottom, #003161, #0216ad);
+        }
+
+        .navbar-brand,
+        .navbar .nav-link,
+        .navbar .bi {
+            color: white !important;
+        }
+
+        .navbar .nav-link:hover,
+        .navbar-brand:hover,
+        .navbar .bi:hover {
+            color: #cccccc !important;
+        }
+
+        .navbar .dropdown-item {
+            color: black !important;
+        }
+        .navbar .dropdown-item:hover {
+            color: #555555 !important;
+            background-color: #f0f0f0;
+        }
+
+        .navbar-toggler {
+            border: none;
+        }
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+        .navbar-toggler-icon {
+           background-image: var(--bs-navbar-toggler-icon-bg);
+        }
+
+        .navbar .search-wrapper .form-control::placeholder {
+            color: #6c757d;
+            opacity: 1;
+        }
+        .navbar .search-wrapper .form-control:-ms-input-placeholder {
+            color: #6c757d;
+        }
+        .navbar .search-wrapper .form-control::-ms-input-placeholder {
+            color: #6c757d;
+        }
+        .navbar .search-wrapper .form-control {
+            color: #212529;
+        }
+        .navbar .search-wrapper .btn .bi-search {
+            color: #6c757d !important;
+        }
+
+        .navbar .collapse .d-lg-none .form-control::placeholder {
+            color: #6c757d;
+            opacity: 1;
+        }
+        .navbar .collapse .d-lg-none .form-control {
+            color: #212529;
+        }
+        .navbar .collapse .d-lg-none .btn .bi-search {
+            color: #6c757d !important;
+        }
+
+        .navbar #cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 3px 6px;
+            font-size: 0.7em;
+            line-height: 1;
+            display: inline-block;
+        }
+        
+    .checkout-btn {
+      background-color: black;
+      color: white;
+      width: 100%;
+    }
+    .checkout-btn:hover {
+      background-color: #333;
+    }
+
+    footer {
+        background: linear-gradient(to top, #003161, #0216ad);
+        color: rgb(230, 230, 230);
+    }
+
+    footer a:hover {
+        color: white;
+    }
+  </style>
+</head>
+<body class="bg-white">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container-fluid position-relative">
+      <a class="navbar-brand me-lg-3" href="../2 - Home Page/indexHP.html">
+        <img src="SRC/naxa_logo_white.png" alt="Logo NAXA" height="45" />
+      </a>
+      <div class="search-wrapper mx-auto position-absolute top-50 start-50 translate-middle d-none d-lg-block" style="width: 40%; max-width: 450px; z-index: 1050;">
+        <form class="d-flex">
+          <input class="form-control ps-3 pe-5" type="search" placeholder="Search" aria-label="Search"/>
+          <button class="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent" type="submit">
+            <i class="bi bi-search"></i>
+          </button>
+        </form>
+      </div>
+      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="d-lg-none my-2">
+            <form class="d-flex position-relative">
+              <input class="form-control ps-3 pe-5" type="search" placeholder="Search on NAXA" aria-label="Search">
+              <button class="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent" type="submit">
+                  <i class="bi bi-search"></i>
+              </button>
+            </form>
+        </div>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+          <li class="nav-item">
+            <a class="nav-link position-relative" href="#" aria-label="Cart">
+              <i class="bi bi-cart fs-5"></i>
+              <span id="cart-badge" style="display: none;">0</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../6 - About Us/indexacc.html" aria-label="Account">
+              <i class="bi bi-person-circle fs-5"></i>
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarMoreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-list fs-5"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarMoreDropdown">
+              <li><a class="dropdown-item" href="../5 - Order & Tracking/indexTrack.html">Tracking Order</a></li>
+              <li><a class="dropdown-item" href="../6 - About Us/indexAus.html">About Us</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="../3 - Shop & Product/indexProduct.html">All Products</a></li>
+              <li><a class="dropdown-item" href="../6 - About Us/indexCont.html">Contact</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Cart Section -->
+  <div class="container my-5">
+    <h3 class="mb-4 text-center">Keranjang Belanja</h3>
+    <div class="row" id="cart-container"></div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white pt-5 pb-4">
+    <div class="container-fluid px-5">
+      <div class="row justify-content-between align-items-start">
+        <div class="col-md-6 d-flex gap-5">
+          <div>
+            <h6 class="fw-bold">PRODUCT</h6>
+            <ul class="list-unstyled">
+              <li><a href="../3 - Shop & Product/indexProduct.html" class="text-white-50 text-decoration-none small">Shirt</a></li>
+              <li><a href="../3 - Shop & Product/indexProduct.html" class="text-white-50 text-decoration-none small">Jacket</a></li>
+              <li><a href="../3 - Shop & Product/indexProduct.html" class="text-white-50 text-decoration-none small">Shoes</a></li>
+            </ul>
+          </div>
+          <div>
+            <h6 class="fw-bold">SUPPORT</h6>
+            <ul class="list-unstyled">
+              <li><a href="../6 - About Us/indexCont.html" class="text-white-50 text-decoration-none small">Contact</a></li>
+              <li><a href="../6 - About Us/indexAus.html" class="text-white-50 text-decoration-none small">About Us</a></li>
+              <li><a href="../6 - About Us/indexacc.html" class="text-white-50 text-decoration-none small">Account</a></li>
+              <li><a href="../5 - Order & Tracking/indexTrack.html" class="text-white-50 text-decoration-none small">Tracking</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4 text-md-end text-center mt-4 mt-md-0">
+          <h4 class="fw-bold"><a href="/" style="color: white;">NAXA</a></h4>
+          <div class="mt-2">
+            <a href="https://wa.me/6282296361021" class="text-white-50 me-3"><i class="bi bi-whatsapp"></i></a>
+            <a href="https://instagram.com/muzhaffar_fakih" class="text-white-50 me-3"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="text-white-50 me-3"><i class="bi bi-twitter-x"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="border-secondary mt-4" />
+      <div class="text-center small text-white-50">© 2025 NAXA. All Rights Reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    let cartItems = [{
+      id: 1,
+      name: "Naxa X Timnas Indonesia - Jersey Vintage",
+      color: "Red and White",
+      size: "2XL",
+      price: 449000,
+      qty: 1,
+      image: "https://via.placeholder.com/100"
+    }];
+
+    const cartContainer = document.getElementById('cart-container');
+
+    function renderCart() {
+      let subtotal = 0;
+      let itemsHTML = '';
+
+      if (cartItems.length === 0) {
+        itemsHTML = `<p class="text-muted">Keranjang kamu kosong.</p>`;
+      } else {
+        cartItems.forEach(item => {
+          subtotal += item.price * item.qty;
+          itemsHTML += `
+            <div class="d-flex border-bottom pb-3 mb-3 align-items-start" data-id="${item.id}">
+              <img src="${item.image}" class="me-3 rounded" width="100">
+              <div class="flex-grow-1">
+                <h6>${item.name}</h6>
+                <p class="mb-1 text-muted">Warna: ${item.color}</p>
+                <p class="mb-1 text-muted">Ukuran: ${item.size}</p>
+                <p class="fw-bold">Rp ${item.price.toLocaleString('id-ID')}</p>
+              </div>
+              <div>
+                <div class="input-group input-group-sm">
+                  <button class="btn btn-outline-dark" onclick="changeQty(${item.id}, -1)">-</button>
+                  <input type="text" class="form-control text-center" value="${item.qty}" disabled style="width: 40px;">
+                  <button class="btn btn-outline-dark" onclick="changeQty(${item.id}, 1)">+</button>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+      }
+
+      const delivery = cartItems.length === 0 ? 0 : 13000;
+      const tax = cartItems.length === 0 ? 0 : 2500;
+      const total = subtotal + delivery + tax;
+
+      cartContainer.innerHTML = `
+        <div class="col-md-8">${itemsHTML}</div>
+        <div class="col-md-4">
+          <div class="border p-3">
+            <h6>Ringkasan</h6>
+            <div class="d-flex justify-content-between">
+              <span>Subtotal</span>
+              <span>Rp ${subtotal.toLocaleString('id-ID')}</span>
+            </div>
+            <div class="d-flex justify-content-between">
+              <span>Pengiriman</span>
+              <span>Rp ${delivery.toLocaleString('id-ID')}</span>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span>Pajak</span>
+              <span>Rp ${tax.toLocaleString('id-ID')}</span>
+            </div><hr>
+            <div class="d-flex justify-content-between fw-bold">
+              <span>Total</span>
+              <span>Rp ${total.toLocaleString('id-ID')}</span>
+            </div>
+            <button class="btn btn-primary w-100 py-2 mt-3" ${cartItems.length === 0 ? 'disabled' : ''}>CHECK OUT</button>
+          </div>
+        </div>
+      `;
+    }
+
+    function changeQty(id, delta) {
+      const index = cartItems.findIndex(i => i.id === id);
+      if (index !== -1) {
+        cartItems[index].qty += delta;
+        if (cartItems[index].qty <= 0) {
+          cartItems.splice(index, 1);
+        }
+        renderCart();
+      }
+    }
+
+    renderCart();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
